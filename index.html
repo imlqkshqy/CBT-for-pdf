@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBT PDF</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#ffffff] text-black font-sans">
+    <div id="app">
+        <div id="start-screen" class="main-container">
+            <div class="card">
+                <h1 class="text-3xl font-bold mb-6">CBT PDF</h1>
+                <h2 class="text-xl mb-4">Enter the details of the test</h2>
+                <div class="input-group">
+                    <label for="num-questions" class="block mb-2 text-sm">Enter the number of questions:</label>
+                    <input type="number" id="num-questions" min="1" max="100" value="10"
+                        class="w-full px-4 py-2 bg-[#ffffff] border border-[#000000] outline-none">
+                </div>
+                <div class="input-group">
+                    <label for="time-limit" class="block mb-2 text-sm">Enter the number of minutes the exam lasts:</label>
+                    <input type="number" id="time-limit" min="1" value="30"
+                        class="w-full px-4 py-2 bg-[#ffffff] border border-[#000000] outline-none">
+                </div>
+                <div class="input-group">
+                    <label for="exam-name" class="block mb-2 text-sm">Enter the name of the exam:</label>
+                    <input type="text" id="exam-name" placeholder="E.g., Math Test"
+                        class="w-full px-4 py-2 bg-[#ffffff] border border-[#000000] outline-none">
+                </div>
+                <button id="proceed-btn" class="w-full py-3 mt-4 btn">
+                    Proceed
+                </button>
+            </div>
+        </div>
+
+        <div id="type-selection-screen" class="hidden main-container">
+            <div class="card" style="max-width: 768px; text-align: left;">
+                <h1 class="text-3xl font-bold mb-6" style="text-align: center;">Enter the type of each question</h1>
+                <div id="question-types-container" class="space-y-4 mb-4">
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-top: 0.3rem;">
+                    <button id="go-back-btn" class="px-4 py-2 btn" style="background-color: #000000;">
+                        Go Back
+                    </button>
+                    <button id="generate-ui-btn" class="px-4 py-2 btn" style="background-color: #000000;">
+                        Generate UI
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="test-screen" class="hidden" style="min-height: 100vh;">
+            <div class="quiz-container">
+                <div class="quiz-header">
+                    <h1 id="test-title" class="text-3xl font-bold"></h1>
+                </div>
+                <div class="fixed-timer">
+                    <div id="timer" class="px-4 py-2" style="border: 1px solid #000000; color: #000000; background-color: #ffffff; font-size: 1.5em; border-radius: 0.5rem;">Time Remaining: --:--</div>
+                </div>
+                <div id="questions-container" style="margin-bottom: 0.4rem;">
+                </div>
+                <div style="margin-top: 0.4rem; display: flex; justify-content: center;">
+                    <button id="submit-exam-btn" class="px-6 py-3 btn">
+                        Submit Exam
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="answer-key-screen" class="hidden main-container">
+            <div class="card">
+                <h1 class="text-3xl font-bold mb-6" style="text-align: center;">Enter Answer Key</h1>
+                <div id="answer-key-inputs" class="space-y-4 mb-4">
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-top: 0.3rem;">
+                    <button id="back-to-test-btn" class="px-4 py-2 btn" style="background-color: #000000;">
+                        Back to Test
+                    </button>
+                    <button id="calculate-results-btn" class="px-4 py-2 btn" style="background-color: #000000;">
+                        Calculate Results
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="results-screen" class="hidden" style="min-height: 100vh;">
+            <div class="results-container">
+                <h1 class="text-3xl font-bold mb-6" style="text-align: center;">Your Responses</h1>
+                <div id="results-display" style="margin-bottom: 0.2rem;">
+                </div>
+                <div style="margin-top: 0.4rem; display: flex; justify-content: center;">
+                    <button id="restart-btn" class="px-6 py-3 btn">
+                        Start a New Test
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
