@@ -1,12 +1,12 @@
-// State variables
+
 let numQuestions = 0;
 let timeLimit = 0;
 let examName = '';
 let questionTypes = [];
 let timerInterval = null;
-let userAnswers = []; // Store user's answers
+let userAnswers = []; 
 
-// Get DOM elements
+
 const startScreen = document.getElementById('start-screen');
 const typeSelectionScreen = document.getElementById('type-selection-screen');
 const testScreen = document.getElementById('test-screen');
@@ -34,7 +34,7 @@ const calculateResultsBtn = document.getElementById('calculate-results-btn');
 const resultsDisplay = document.getElementById('results-display');
 const restartBtn = document.getElementById('restart-btn');
 
-// Functions to show/hide screens
+
 function showStartScreen() {
     startScreen.classList.remove('hidden');
     typeSelectionScreen.classList.add('hidden');
@@ -70,16 +70,16 @@ function showAnswerKeyScreen() {
     generateAnswerKeyInputs();
 }
 
-function showResultsScreen(resultsData) { // Changed argument name to avoid conflict
+function showResultsScreen(resultsData) { 
     startScreen.classList.add('hidden');
     typeSelectionScreen.classList.add('hidden');
     testScreen.classList.add('hidden');
     answerKeyScreen.classList.add('hidden');
     resultsScreen.classList.remove('hidden');
-    displayResults(resultsData); // Pass the entire resultsData object
+    displayResults(resultsData); 
 }
 
-// Event Listeners
+
 proceedBtn.addEventListener('click', () => {
     numQuestions = parseInt(numQuestionsInput.value, 10);
     timeLimit = parseInt(timeLimitInput.value, 10);
@@ -101,7 +101,7 @@ goBackBtn.addEventListener('click', () => {
 });
 
 generateUIBtn.addEventListener('click', () => {
-    // Read selected question types from dropdowns
+    
     questionTypes = [];
     const dropdowns = questionTypesContainer.querySelectorAll('select');
     dropdowns.forEach(dropdown => {
@@ -112,17 +112,17 @@ generateUIBtn.addEventListener('click', () => {
 
 submitExamBtn.addEventListener('click', () => {
     clearInterval(timerInterval);
-    userAnswers = captureAnswers(); // Capture user answers before going to answer key screen
+    userAnswers = captureAnswers(); 
     showAnswerKeyScreen();
 });
 
 backToTestBtn.addEventListener('click', () => {
-    showTestScreen(); // Go back to the test screen if needed
+    showTestScreen(); 
 });
 
 calculateResultsBtn.addEventListener('click', () => {
     const answerKey = captureAnswerKey();
-    const resultsData = calculateScores(userAnswers, answerKey); // Get the object containing totalScore, maxPossibleScore, and individual results
+    const resultsData = calculateScores(userAnswers, answerKey); 
     showResultsScreen(resultsData);
 });
 
@@ -130,15 +130,15 @@ restartBtn.addEventListener('click', () => {
     showStartScreen();
 });
 
-// Function to generate the dropdowns for question types
+
 function generateQuestionTypeDropdowns() {
-    questionTypesContainer.innerHTML = ''; // Clear previous dropdowns
+    questionTypesContainer.innerHTML = ''; 
     for (let i = 1; i <= numQuestions; i++) {
         const div = document.createElement('div');
         div.classList.add('input-group');
         div.style.display = 'flex';
         div.style.alignItems = 'center';
-        div.style.gap = '0.2rem'; /* Reduced gap */
+        div.style.gap = '0.2rem'; 
         div.innerHTML = `
             <label class="font-semibold" style="width: 33.333333%;">Ques ${i}:</label>
             <select class="flex-grow bg-[#ffffff] border border-[#000000] px-4 py-2 text-sm">
@@ -151,10 +151,10 @@ function generateQuestionTypeDropdowns() {
     }
 }
 
-// Function to generate the test UI
+
 function generateTestUI() {
     testTitle.textContent = examName;
-    questionsContainer.innerHTML = ''; // Clear previous questions
+    questionsContainer.innerHTML = ''; 
 
     questionTypes.forEach((type, index) => {
         const questionNumber = index + 1;
@@ -166,7 +166,7 @@ function generateTestUI() {
         `;
 
         if (type === 'scq') {
-            // Single Option Correct (Radio buttons)
+            
             questionContent += `
                 <div style="margin-top: 0.1rem;"> <div class="option-item">
                         <input type="radio" id="q${questionNumber}-a" name="q${questionNumber}" value="a">
@@ -187,7 +187,7 @@ function generateTestUI() {
                 </div>
             `;
         } else if (type === 'mcq') {
-            // Multiple Options Correct (Checkboxes)
+            
             questionContent += `
                 <div style="margin-top: 0.1rem;"> <div class="option-item">
                         <input type="checkbox" id="q${questionNumber}-a" name="q${questionNumber}-options" value="a">
@@ -208,7 +208,7 @@ function generateTestUI() {
                 </div>
             `;
         } else if (type === 'numerical') {
-            // Numerical Input
+            
             questionContent += `
                 <div class="input-group">
                     <input type="number" id="q${questionNumber}-numerical" class="w-1/2 px-4 py-2 bg-[#ffffff] border border-[#000000] outline-none">
@@ -227,7 +227,7 @@ function generateTestUI() {
         questionsContainer.appendChild(questionCard);
     });
 
-    // Add event listeners for clear buttons
+    
     questionsContainer.querySelectorAll('.clear-response-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const questionNumber = e.target.getAttribute('data-question');
@@ -246,11 +246,11 @@ function generateTestUI() {
         });
     });
 
-    // Start the timer
+    
     startTimer(timeLimit);
 }
 
-// Timer function
+
 function startTimer(minutes) {
     let totalSeconds = minutes * 60;
     const timerElement = document.getElementById('timer');
@@ -272,7 +272,7 @@ function startTimer(minutes) {
     }, 1000);
 }
 
-// Function to capture all user answers
+
 function captureAnswers() {
     const answers = [];
     questionTypes.forEach((type, index) => {
@@ -299,9 +299,9 @@ function captureAnswers() {
     return answers;
 }
 
-// Function to generate answer key input fields
+
 function generateAnswerKeyInputs() {
-    answerKeyInputs.innerHTML = ''; // Clear previous inputs
+    answerKeyInputs.innerHTML = ''; 
     questionTypes.forEach((type, index) => {
         const questionNumber = index + 1;
         const div = document.createElement('div');
@@ -314,7 +314,7 @@ function generateAnswerKeyInputs() {
     });
 }
 
-// Function to capture the answer key
+
 function captureAnswerKey() {
     const answerKey = [];
     questionTypes.forEach((type, index) => {
@@ -334,10 +334,10 @@ function captureAnswerKey() {
     return answerKey;
 }
 
-// Function to calculate scores
+
 function calculateScores(userAnswers, answerKey) {
     let totalScore = 0;
-    let maxPossibleScore = 0; // Initialize max possible score
+    let maxPossibleScore = 0; 
     const results = [];
 
     userAnswers.forEach((userAns, index) => {
@@ -345,7 +345,7 @@ function calculateScores(userAnswers, answerKey) {
         let score = 0;
         let status = 'Incorrect';
 
-        // Each question contributes 4 to the max possible score
+        
         maxPossibleScore += 4;
 
         if (userAns.answer === correctAns.answer && userAns.answer !== '') {
@@ -379,14 +379,14 @@ function calculateScores(userAnswers, answerKey) {
     return { totalScore: totalScore, maxPossibleScore: maxPossibleScore, results: results };
 }
 
-// Function to display the results
-function displayResults(resultsData) { // Takes the resultsData object
-    resultsDisplay.innerHTML = ''; // Clear previous results
+
+function displayResults(resultsData) { 
+    resultsDisplay.innerHTML = ''; 
 
     const totalScoreElement = document.createElement('h2');
     totalScoreElement.classList.add('text-2xl', 'font-bold', 'mb-4');
     totalScoreElement.style.textAlign = 'center';
-    totalScoreElement.textContent = `Total Score: ${resultsData.totalScore}/${resultsData.maxPossibleScore}`; // Display total and max score
+    totalScoreElement.textContent = `Total Score: ${resultsData.totalScore}/${resultsData.maxPossibleScore}`; 
     resultsDisplay.appendChild(totalScoreElement);
 
     if (resultsData.results.length === 0) {
@@ -394,7 +394,7 @@ function displayResults(resultsData) { // Takes the resultsData object
         return;
     }
 
-    resultsData.results.forEach(result => { // Iterate over the individual results
+    resultsData.results.forEach(result => { 
         const resultCard = document.createElement('div');
         resultCard.classList.add('result-card');
 
@@ -418,7 +418,7 @@ function displayResults(resultsData) { // Takes the resultsData object
 }
 
 
-// Custom modal function to replace alert()
+
 function showModal(message) {
     const modalHtml = `
         <div id="custom-modal" style="position: fixed; inset: 0; background-color: rgba(0, 0, 0, 0.75); display: flex; align-items: center; justify-content: center; padding: 1rem; z-index: 50;">

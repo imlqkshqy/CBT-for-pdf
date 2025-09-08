@@ -14,21 +14,21 @@ body {
 .card {
     background-color: #ffffff;
     border: 1px solid #000000;
-    border-radius: 0.5rem; /* Rounded borders */
-    padding: 0.5rem; /* Reduced padding */
+    border-radius: 0.5rem; 
+    padding: 0.5rem; 
     width: 100%;
     max-width: 500px;
     text-align: center;
 }
 
 .input-group {
-    margin-bottom: 0.3rem; /* Reduced margin */
+    margin-bottom: 0.3rem; 
     text-align: left;
 }
 
 .input-group label {
     display: block;
-    margin-bottom: 0.1rem; /* Reduced margin */
+    margin-bottom: 0.1rem; 
     font-size: 0.875rem;
     font-weight: 600;
 }
@@ -38,8 +38,8 @@ body {
     width: 100%;
     background-color: #ffffff;
     border: 1px solid #000000;
-    border-radius: 0.25rem; /* Rounded borders */
-    padding: 0.15rem 0.2rem; /* Reduced padding */
+    border-radius: 0.25rem; 
+    padding: 0.15rem 0.2rem; 
     font-size: 1rem;
     color: #000000;
     outline: none;
@@ -48,12 +48,12 @@ body {
 .btn {
     background-color: #000000;
     color: white;
-    padding: 0.15rem 0.4rem; /* Reduced padding */
+    padding: 0.15rem 0.4rem; 
     font-weight: 600;
     cursor: pointer;
     display: inline-block;
     border: none;
-    border-radius: 0.25rem; /* Rounded borders */
+    border-radius: 0.25rem; 
 }
 
 #submit-exam-btn {
@@ -63,11 +63,11 @@ body {
 .title {
     font-size: 2rem;
     font-weight: 600;
-    margin-bottom: 0.3rem; /* Reduced margin */
+    margin-bottom: 0.3rem; 
 }
 
 .quiz-container {
-    padding: 0.2rem; /* Reduced padding */
+    padding: 0.2rem; 
     max-width: 700px;
     margin: auto;
 }
@@ -76,39 +76,39 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.4rem; /* Reduced margin */
+    margin-bottom: 0.4rem; 
 }
 
 .fixed-timer {
     position: fixed;
-    top: 0.4rem; /* Reduced from 2rem */
-    right: 0.4rem; /* Reduced from 2rem */
+    top: 0.4rem; 
+    right: 0.4rem; 
     z-index: 10;
 }
 
 .question-card {
     background-color: #ffffff;
     border: 1px solid #000000;
-    border-radius: 0.5rem; /* Rounded borders */
-    padding: 0.2rem; /* Reduced padding */
-    margin-bottom: 0.2rem; /* Reduced margin */
+    border-radius: 0.5rem; 
+    padding: 0.2rem; 
+    margin-bottom: 0.2rem; 
 }
 
 .question-text {
     font-size: 1.25rem;
     font-weight: 600;
-    margin-bottom: 0.3rem; /* Reduced margin */
+    margin-bottom: 0.3rem; 
 }
 
 .option-item {
     display: flex;
     align-items: center;
-    margin-bottom: 0.15rem; /* Reduced margin */
+    margin-bottom: 0.15rem; 
 }
 
 .option-item input[type="radio"],
 .option-item input[type="checkbox"] {
-    margin-right: 0.15rem; /* Reduced margin */
+    margin-right: 0.15rem; 
     cursor: pointer;
 }
 
@@ -117,7 +117,7 @@ body {
 }
 
 .results-container {
-    padding: 0.4rem; /* Reduced padding */
+    padding: 0.4rem; 
     max-width: 700px;
     margin: auto;
 }
@@ -125,16 +125,16 @@ body {
 .result-card {
     background-color: #ffffff;
     border: 1px solid #000000;
-    border-radius: 0.5rem; /* Rounded borders */
-    padding: 0.3rem; /* Reduced padding */
-    margin-bottom: 0.3rem; /* Reduced margin */
+    border-radius: 0.5rem; 
+    padding: 0.3rem; 
+    margin-bottom: 0.3rem; 
 }
 
 .hidden {
     display: none;
 }
 
-/* Styles for the answer key input screen */
+
 #answer-key-screen .card {
     max-width: 768px;
     text-align: left;
@@ -143,7 +143,7 @@ body {
 #answer-key-screen .input-group {
     display: flex;
     align-items: center;
-    gap: 0.2rem; /* Reduced gap */
+    gap: 0.2rem; 
 }
 
 #answer-key-screen .input-group label {
